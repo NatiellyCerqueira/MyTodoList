@@ -129,8 +129,24 @@ height: 58px;
     text-decoration: none;
 }
 
-
-
+.padding-left_10px{
+    padding-left: 10px;
+}
+.padding-right_10px{
+    padding-right: 10px;
+}
+.height_49px{
+    height: 49px;
+} 
+.width_500px{
+width: 500px;
+}
+.font-size_16px{
+    font-size: 16px;
+}
+.margin-top_16px{
+margin-top: 16px;
+}
 
 
 
