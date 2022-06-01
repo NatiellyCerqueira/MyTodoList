@@ -152,13 +152,16 @@ margin-top: 16px;
 } .magin-right_16px{
     margin-right: 16px;
 }
- .align-self_flex-end{
-     align-self: flex-end;
+.position-absolute{
+    position: absolute;
+
+}
+.left_369px{
+    left: 369px;
+}
+ .top_630px{
+     top: 630px;
  }
-
-
-
-
 
 
 
