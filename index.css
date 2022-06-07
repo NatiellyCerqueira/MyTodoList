@@ -77,6 +77,9 @@
 .margin-right_17px{
     margin-right: 17px;
 }
+.margin-right_36px{
+    margin-right: 36px;
+}
 
 /* grupo flex */
 
@@ -113,6 +116,9 @@
 .color_white{
     color: white;
 }
+.color_aaa{
+    color: #aaa
+}    
  
 
 /* grupo width */
@@ -125,6 +131,9 @@
 }
 .width_500px{
     width: 500px;
+}
+.width_31px{
+    width: 31px;
 }
 
 /* grupo fill white */
@@ -178,6 +187,22 @@
 .padding_0-40px{
     padding: 0 40px;
 }
+.padding-right_28px{
+    padding-right: 28px;
+}
+.padding-bottom_26px{
+    padding-bottom: 26px;
+}
+.padding-left_40px{
+    padding-left: 40px;
+}
+.padding-right_40px{
+    padding-right: 40px;
+}
+.padding-top_5px{
+    padding-top: 5px;
+}
+
 
 /* grupo font size */
 .font-size_24px{
@@ -185,6 +210,12 @@
 }
 .font-size_16px{
     font-size: 16px;
+}
+.font-size_36px{
+    font-size: 36px;
+}
+.font-size_17px{
+    font-size: 17px;
 }
 
 /* grupo text decoration */
