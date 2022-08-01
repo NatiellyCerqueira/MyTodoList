@@ -29,10 +29,14 @@
             </a>
         </button>
     </div>
-    
-    <div class="main padding-top_10px padding-bottom_26px padding-left_40px padding-right_40px ">
-        <input class="font-size_36px border_none background_transparent border_none-outline " placeholder="Write your next task here..." />
-    </div>
+
+        <div class="main padding-top_10px padding-bottom_26px padding-left_40px padding-right_40px ">
+            <form id="form"> <input id="input" class="font-size_36px border_none background_transparent border_none-outline " placeholder="Write your next task here..." />
+        </div> 
+            </form>
+    <ul id="listaadd" ></ul>
+
+
     <div class="Footer padding-left_40px padding-right_40px display_flex align-items_center justify-content_flex-end        ">
         <a class="text_decoration-none color_aaa padding-right_28px padding-top_10px padding-bottom_10px  " href="#">About</a>
         <a class="text_decoration-none color_aaa padding-right_28px padding-top_10px padding-bottom_10px " href="#">Developers</a>
@@ -46,5 +50,39 @@
                 </a>
             </button>       
     </div>
+
+<script>
+  let listaadd = []
+        function atualizaTela(){
+            document.querySelector("#listaadd").innerHTML = ""
+  	        listaadd.forEach(function(item){
+			document.querySelector("#listaadd").innerHTML += `<li>${item.valor}</li>`
+            })
+        }
+        
+    
+        document.querySelector("#form").addEventListener("submit", function(event){
+  	        event.preventDefault()
+    
+        const input = document.querySelector("#input")
+        const valorInput = input.value
+          
+        listaadd.push({
+        id: listaadd.length,
+        valor: valorInput
+		})
+    
+        input.value = ""
+    
+    atualizaTela()
+  })
+</script>
+
 </body>
 </html>
+<!---
+<form id="form">
+	<input id="input" placeholder="Type here"/>
+</form>
+
+<ul id="todoList"></ul> -->
