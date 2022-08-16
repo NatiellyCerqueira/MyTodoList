@@ -19,7 +19,7 @@
 
     </div>
 
-    <div id="purple-bar" class=" align-items_center justify-content_flex-end background-color_843ab8 height-58px background-color:linear-gradient_a648c4_7930a7 display_flex">
+    <div id="purple-bar" class="align-items_center justify-content_flex-end background-color_843ab8 height-58px background-color:linear-gradient_a648c4_7930a7 display_flex">
         <input class="background_transparent border_none padding_0 flex-grow_1 padding-left_16px padding-right_16px font-size_24px border_none-outline color_white padding-top_16px" placeholder="-"/>
         <button class="height_40px margin-right_36px padding-top_10px padding-bottom_10px background-color_1eb760 border-radius_4px width_186px color_white border-color_0c4927 margin_top-4px margin-left_168px padding-left_22px padding-right_22px">
             <a id="save-this-list">
@@ -30,19 +30,21 @@
         </button>
     </div>
 
-        <div class="main padding-top_10px padding-bottom_26px padding-left_40px padding-right_40px ">
-            <form id="form"> <input id="input" class="font-size_36px border_none background_transparent border_none-outline " placeholder="Write your next task here..." />
-        </div> 
+        <div class="main padding-top_10px padding-bottom_26px padding-left_40px padding-right_40px">
+            <form id="form"> 
+                <input id="input" class="font-size_36px border_none background_transparent border_none-outline" placeholder="Write your next task here..." />
             </form>
-    <ul id="listaadd" ></ul>
+        </div> 
+            
+    <ul id="listaAdd"></ul>
 
 
-    <div class="Footer padding-left_40px padding-right_40px display_flex align-items_center justify-content_flex-end        ">
+    <div class="Footer padding-left_40px padding-right_40px display_flex align-items_center justify-content_flex-end">
         <a class="text_decoration-none color_aaa padding-right_28px padding-top_10px padding-bottom_10px  " href="#">About</a>
         <a class="text_decoration-none color_aaa padding-right_28px padding-top_10px padding-bottom_10px " href="#">Developers</a>
         <a class="text_decoration-none color_aaa padding-top_10px padding-bottom_10px " href="#">Suggest a feature</a>
     </div>
-    <div class=" height-37px width-595px display_flex align-items_center ">
+    <div class="height-37px width-595px display_flex align-items_center">
             <button class="position-fixed_bottom height_40px padding-bottom_10px background-color_1eb760 border-radius_4px width_186px color_white margin_top-4px margin-left_42px border_none"> 
                 <a class="display_flex align-items_center padding-top_6px color_white text_decoration-none font-size_17px" href="#">
                     <img class="width_31px padding-top_5px" src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy Me a coffee">
@@ -52,37 +54,54 @@
     </div>
 
 <script>
-  let listaadd = []
+    let listaAdd = []
+
         function atualizaTela(){
-            document.querySelector("#listaadd").innerHTML = ""
-  	        listaadd.forEach(function(item){
-			document.querySelector("#listaadd").innerHTML += `<li>${item.valor}</li>`
+            document.querySelector("#listaAdd").innerHTML = ""
+            listaAdd.forEach(function(item){
+                document.querySelector("#listaAdd").innerHTML += 
+                `<li class="list-style_none font-size_20px color-555">
+                    <input type="checkbox">
+                    <button class="remove" data-idt="${item.id}">Delete</button> 
+                    ${item.valor}
+                </li>`
+            })
+
+            document.querySelectorAll(".remove").forEach(function(element){
+                element.addEventListener("click", function(){
+                    const dataidt = parseInt(element.getAttribute("data-idt"))
+                    const novaLista = listaAdd.filter(function(item){
+                        return item.id !== dataidt
+                    })     
+                    
+                    listaAdd = novaLista
+
+                    atualizaTela()  
+                })
             })
         }
+        //   observar a formatação , sempre dentro para executar !! //
+        // parseint -- transformar o texto em numero //
+        // # para id e .para class//
+        // !== diferente //
         
     
         document.querySelector("#form").addEventListener("submit", function(event){
-  	        event.preventDefault()
-    
-        const input = document.querySelector("#input")
-        const valorInput = input.value
-          
-        listaadd.push({
-        id: listaadd.length,
-        valor: valorInput
-		})
-    
+            event.preventDefault()
+
+            const input = document.querySelector("#input")
+            const valorInput = input.value
+        
+            listaAdd.push({
+                id: listaAdd.length,
+                valor: valorInput
+            })
+
         input.value = ""
-    
-    atualizaTela()
-  })
+
+        atualizaTela()
+    })
 </script>
 
 </body>
 </html>
-<!---
-<form id="form">
-	<input id="input" placeholder="Type here"/>
-</form>
-
-<ul id="todoList"></ul> -->
